@@ -11,7 +11,7 @@ void display()
     for (i=0;i<=top;i++)
       printf("%d ",a[i]);
     }
-      printf("\n");
+       printf("\n");
 }
 int insertend (int val)
 {
@@ -36,7 +36,7 @@ int deleteend ()
      } 
 
 }
-int main()
+ int main()
 {
 int x,ch;
 printf("1.insert element at last position");
@@ -63,9 +63,9 @@ while (ch!=0)
            display();
            break;
 
-      case 0:
+      case 0:   
            break;
-       default:
+       default:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
           printf("wrong chice....");
           break;
                    
