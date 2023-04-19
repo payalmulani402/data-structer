@@ -63,7 +63,7 @@ void deletefirst()
         printf("\n0. exit\n");
         while (ch!=0)
         {
-            printf("enter your choice:");
+            printf("\nenter your choice:");
             scanf("%d",&ch);
             switch(ch)
             {
