@@ -50,11 +50,11 @@ int main()
 
     display();
 
-    deletefirst();
-    deletefirst();
-    deletefirst();
-    deletefirst();
-    deletefirst();
-
-    display();
+    
+ deletefirst();
+ deletefirst();
+ deletefirst();
+ deletefirst();
+ deletefirst();
+ display();
 }
