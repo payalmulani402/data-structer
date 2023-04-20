@@ -1,76 +1,107 @@
 #include<stdio.h>
 #define n 5
 int a[n];
-int f=-1,r=-1;
+int f=-1,r=-1,i;
 void display()
 {
-    printf("\n");
-    int i=f;
     if(f<0)
-    {
         printf("queue is empty....");
-    }
     else 
     {
-        do 
-        {
-        printf("%d ",a[i]);
-        i=(i+1)%n;
-        }
-    while (i!=(r+1) %n);
+        for(i=f;i<=r;i++)
+        printf("%d",a[i]);
     }
+    printf("\n");
 }
-void insert (int val)
+ int insertend (int val)
 {
-    if ((r+1)%n==f)
-    printf("queue is full.");
+    if (r>=n-1)
+    printf("queue is full...\n");
     else if (r<0)
     {
         f=r=0;
         a[r]=val;
-       // printf("\n insertrd elemet is:%d",val);
     }
-     else
-     {
-        r=(r+1)%n;
-        a[r]=val;
-       // printf("\n insertrd elemet is:%d",val);
-    }
+        else
+        a[++r]=val;
 }
-void delete()
+int deletfirst()
 {
     if (f<0)
     printf("queue is already empty.");
     else if(f==r)
-    {
-       // printf("\n delered elemet is:%d",a[f]);
-        f==-1,r=-1;
-    }
-    else
-       {
-      
-       // printf("\n deleted elemet is :%d",a[f]);
-        f=(f+1)%n;
-    }
+        f=r=-1;
+        else
+           ++f;
 }
-         
-    int main()
+int insertfirst (int val)
+{
+    if (f==0)
+    printf("no insert this time\n");
+    else if (f<0)
     {
-        insert(10);
-        insert(20);
-        insert(30);
-        insert(40);
-        insert(50);
-
-    display();
-
-       delete();
-       delete();
-       delete();
-       delete();
-       delete();
-       insert(100);
-       insert(200);
-
-       display();
+        f=r=0;
+        a[f]=val;
     }
+        else
+        a[--f]=val;
+         }
+     
+int deletend()
+{
+    if (r<0)
+    printf("queue is already empty.");
+    else if(r==f)
+            f==-1,r=-1;
+        else    
+        r--;
+}
+int main()
+ {        
+        int x,ch;
+        printf("1.insert last element");
+        printf("\n2 delet first element");
+        printf("\n3.display");
+        printf("\n7.insent first element");
+        printf("\n8.delet last element");
+        printf("\n0. exit\n");
+        while (ch!=0)
+        {
+            printf("enter your choice:");
+            scanf("%d",&ch);
+            switch(ch)
+            {
+                case 1:
+
+                printf("enter element:");
+                scanf("%d",&x);
+                insertend (x);
+                break;
+
+                case 2:
+
+                deletfirst();
+                break;
+                
+                case 7:
+                printf("enter element:");
+                scanf("%d",&x);
+                insertfirst(x);
+                break;
+
+                case 8:
+                deletend ();
+                break;
+
+                case 3:
+                display();
+                break;
+
+                case 0:
+                break;
+                default:
+                printf("wrong chice,,,");
+                break;
+            }
+        }
+ }
